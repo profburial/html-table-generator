@@ -25,11 +25,6 @@ class Table {
 	var $empty_cells		= "";
 	var	$function			= FALSE;
 
-	public function __construct()
-	{
-		//
-	}
-
 	// --------------------------------------------------------------------
 
 	/**
