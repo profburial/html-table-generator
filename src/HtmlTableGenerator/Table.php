@@ -1,19 +1,4 @@
 <?php
-/**
- * CodeIgniter
- *
- * An open source application development framework for PHP 5.1.6 or newer
- *
- * @package		CodeIgniter
- * @author		ExpressionEngine Dev Team
- * @copyright	        Copyright (c) 2008 - 2011, EllisLab, Inc.
- * @license		http://codeigniter.com/user_guide/license.html
- * @link		http://codeigniter.com
- * @since		Version 1.3.1
- * @filesource
- */
-
-// ------------------------------------------------------------------------
 
 /**
  * HTML Table Generating Class
@@ -21,24 +6,24 @@
  * Lets you create tables manually or from database result objects, or arrays.
  *
  * @package		CodeIgniter
- * @subpackage	        Libraries
- * @category	        HTML Tables
+ * @subpackage	Libraries
+ * @category	HTML Tables
  * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/libraries/uri.html
  */
 
 namespace HtmlTableGenerator;
- 
+
 class Table {
 
-	private $rows			= array();
-	private $heading		= array();
-	private $auto_heading		= TRUE;
-	private $caption		= NULL;
-	private $template		= NULL;
-	private $newline		= "\n";
-	private $empty_cells		= "";
-	private $function		= FALSE;
+	var $rows				= array();
+	var $heading			= array();
+	var $auto_heading		= TRUE;
+	var $caption			= NULL;
+	var $template			= NULL;
+	var $newline			= "\n";
+	var $empty_cells		= "";
+	var	$function			= FALSE;
 
 	public function __construct()
 	{
@@ -54,7 +39,7 @@ class Table {
 	 * @param	array
 	 * @return	void
 	 */
-	public static function setTemplate($template)
+	function set_template($template)
 	{
 		if ( ! is_array($template))
 		{
@@ -75,7 +60,7 @@ class Table {
 	 * @param	mixed
 	 * @return	void
 	 */
-	public static function setHeading()
+	function set_heading()
 	{
 		$args = func_get_args();
 		$this->heading = $this->_prep_args($args);
@@ -94,7 +79,7 @@ class Table {
 	 * @param	int
 	 * @return	void
 	 */
-	public static function makeColumns($array = array(), $col_limit = 0)
+	function make_columns($array = array(), $col_limit = 0)
 	{
 		if ( ! is_array($array) OR count($array) == 0)
 		{
@@ -140,7 +125,7 @@ class Table {
 	 * @param	mixed
 	 * @return	void
 	 */
-	public static function setEmpty($value)
+	function set_empty($value)
 	{
 		$this->empty_cells = $value;
 	}
@@ -156,7 +141,7 @@ class Table {
 	 * @param	mixed
 	 * @return	void
 	 */
-	public static function addRow()
+	function add_row()
 	{
 		$args = func_get_args();
 		$this->rows[] = $this->_prep_args($args);
@@ -219,7 +204,7 @@ class Table {
 	 * @param	string
 	 * @return	void
 	 */
-	public static function setCaption($caption)
+	function set_caption($caption)
 	{
 		$this->caption = $caption;
 	}
@@ -233,7 +218,7 @@ class Table {
 	 * @param	mixed
 	 * @return	string
 	 */
-	public static function generate($table_data = NULL)
+	function generate($table_data = NULL)
 	{
 		// The table data can optionally be passed to this function
 		// either as a database result object or an array
@@ -384,7 +369,7 @@ class Table {
 	 * @access	public
 	 * @return	void
 	 */
-	public static function clear()
+	function clear()
 	{
 		$this->rows				= array();
 		$this->heading			= array();
@@ -528,3 +513,7 @@ class Table {
 
 
 }
+
+
+/* End of file Table.php */
+/* Location: ./system/libraries/Table.php */
